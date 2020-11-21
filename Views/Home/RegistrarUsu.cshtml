@@ -1,0 +1,66 @@
+@model ProyectoProgra.Models.RegistrarUsu
+
+
+<div class="row" >
+
+    <div class="col-md-4">
+        <h1 class="display-4" align = "center">Regístrese</h1>
+        <form  method="POST">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <input asp-for="dni" class="form-control" placeholder="DNI" />
+                <span asp-validation-for="dni" class="text-danger"></span>
+                
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Name" class="form-control" placeholder="Nombre" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Lastname" class="form-control" placeholder="Apellido" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Email" class="form-control" placeholder="Correo Electrónico" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Password" class="form-control" placeholder="Contraseña" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="VerifiedPassword" class="form-control" placeholder="Verificar su contraseña" />
+                <span asp-validation-for="VerifiedPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="District" class="col-sm-2 col-form-label"></label>
+                
+                <div class="col-sm-10">
+                <select asp-for="District" asp-items="Model.Districts" class="custom-select mr-sm-2"></select>
+                <span asp-validation-for="District" class="text-danger"></span>
+
+                </div>
+            </div>
+           
+            <td>@Html.CheckBoxFor(m => m.spam)</td> 
+            <label asp-for="spam"></label>
+
+            
+
+            <div class="form-group" align='center'>
+                 <button type="submit" class="btn btn-primary">Registrar</button> 
+            </div>
+
+
+        </form>
+
+         <td>@Html.DisplayTextFor(model => model.Response)</td>  
+    </div>
+
+</div>
