@@ -23,6 +23,11 @@ namespace ProyectoProgra.Controllers
             return View();
         }
 
+        public IActionResult nosotros()
+        {
+            return View();
+        }
+
         public IActionResult RegistrarUsu()
         {
             var model = new RegistrarUsu();
