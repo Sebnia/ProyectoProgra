@@ -22,7 +22,7 @@ namespace ProyectoProgra.Controllers
         {
             return View();
         }
-
+ 
         public IActionResult nosotros()
         {
             return View();

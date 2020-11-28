@@ -27,16 +27,9 @@
 		        	<span class="sr-only">(current)</span>
 		        </a>
 		      </li>
-		      <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow">
-		          Productos</span>
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="laptops.html"><span>Laptops</span></a>
-		          <a class="dropdown-item" href="desktops.html"><span>Desktops</span></a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="accsesorios.html"><span>Accesorios</span></a>
-		        </div>
+		      <li class="nav-item">
+		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="productos">
+		        	<span class="yellow">Productos</span></a>
 		      </li>
 			  <li class="nav-item">
 		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="RegistrarUsu">
@@ -51,10 +44,7 @@
 		        	<span class="yellow">Contáctenos</span></a>
 		      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-primary" type="submit"><span class="yellow">Search</span></button>
-		    </form>
+		    <partial name="_LoginPartial" />
 		  </div>
 		</nav>
     </header>
