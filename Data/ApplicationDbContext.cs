@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ProyectoProgra.Models;
 
 namespace ProyectoProgra.Data
 {
@@ -12,5 +13,9 @@ namespace ProyectoProgra.Data
             : base(options)
         {
         }
+        
+        public DbSet<ProyectoProgra.Models.Contacto> Contactos { get; set; }
+
+
     }
 }

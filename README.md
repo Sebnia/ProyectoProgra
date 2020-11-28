@@ -13,4 +13,9 @@
 
 dotnet ef migrations add CreateIdentitySchema --context ProyectoProgra.Data.ApplicationDbContext -o "D:\Descargas\Trabajos Universidad\ProyectoProgra\Data\Migrations"
 
+
+dotnet ef migrations add CreateIdentitySchema --context ProyectoProgra.Data.ApplicationDbContext -o "C:\Users\fduarte\Documents\Personal\USMP\FIA\Programacion I\20202\ProyectoProgra\Data\Migrations"
+
+
+
 - dotnet ef database update

@@ -6,8 +6,14 @@ using System.Collections.Generic;
 
 namespace ProyectoProgra.Models
 {
-    public class RegistrarUsu
+    [Table("t_contacto")]
+    public class Contacto
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+        public int ID { get; set; }
+
         
             [StringLength(8, ErrorMessage = "Ingrese un DNI valido", MinimumLength = 8)]
             [RegularExpression("^[0-9]*$", ErrorMessage = "* Solo se permiten números.")]
