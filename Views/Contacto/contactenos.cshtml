@@ -1,20 +1,22 @@
 @model ProyectoProgra.Models.Contacto
 
 <section class="container">
-		<div class="container" style="background-image:url(../imagenes/callcenter.png); height: 500px">
+		<div class="container" style="background-image:url(../imagenes/callcenter1.png);  height: 400px ; width: 1100px">
 			
 			<div class="row">	
-				<h2>Bienvenido a nuestra area de Contácto</h2>
+				<h2 style="padding-top: 20px ; padding-left: 20px; color: #99A3A4  ">Bienvenido a nuestra area de Contácto</h2>
 			</div>
 			<div class="row">
-			<h6>Complete el siguiente formulario</h6>
+			<h5 style="padding-top: 100px ; padding-left: 10px; color: #99A3A4  ">Comprometidos con nuestro servicio estamos siempre dispuestos <br>
+			para ayudarlo a resolver sus problemas</h5>
+			<h5 style="padding-top: 100px ; padding-left: 10px; color: #99A3A4  ">Por favor complete el siguiente formulario para ayudarlo</h5>
 			</div>
 		</div>
 	</section>
 
 <div class="row" >
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="padding-left: 50px">
         <h1 class="display-4">Formulario de contacto</h1>
         <form  method="POST" asp-controller="Contacto" asp-action="Registrar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
