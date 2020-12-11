@@ -6,13 +6,20 @@
     <title>@ViewData["Title"] - ProyectoProgra</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="~/css/font.css.css" />
     
 </head>
 <body>
+<div class="social-bar">
+    	<a href="https://www.facebook.com" class="icon icon-facebook" target="_blank"></a>
+    	<a href="https://twitter.com" class="icon icon-twitter" target="_blank"></a>
+    	<a href="https://www.youtube.com" class="icon icon-youtube" target="_blank"></a>
+    	<a href="https://www.instagram.com" class="icon icon-instagram" target="_blank"></a>
+  </div>
     <header>
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
 		  <a class="navbar-brand" href="#">
-		  	<img src="imagenes/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+		  	<img src="~/imagenes/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
 		  	<span class="yellowT">Mi Computadora</span>
 		  </a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,35 +29,30 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="index.html">
+		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="index">
 		        	<span class="yellow">Inicio</span>
 		        	<span class="sr-only">(current)</span>
 		        </a>
 		      </li>
-		      <li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow">
-		          Productos</span>
-		        </a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="laptops.html"><span>Laptops</span></a>
-		          <a class="dropdown-item" href="desktops.html"><span>Desktops</span></a>
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="accsesorios.html"><span>Accesorios</span></a>
-		        </div>
+		      <li class="nav-item active">
+		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="productos">
+		        	<span class="yellow">Productos</span></a>
 		      </li>
-			  <li class="nav-item">
-		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="RegistrarUsu">
-		        	<span class="yellow">Crear Cuenta</span></a>
+			   <li class="nav-item active">
+		        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="nosotros">
+		        	<span class="yellow">Nosotros</span></a>
 		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link disabled" href="contactenos.html">
+		      <li class="nav-item active" >
+		        <a class="nav-link" asp-area="" asp-controller="Contacto" asp-action="contactenos">
 		        	<span class="yellow">Contáctenos</span></a>
 		      </li>
+
+			  <li class="nav-item active" >
+		        <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="Lista">
+		        	<span class="yellow">Lista de Productos</span></a>
+		      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-primary" type="submit"><span class="yellow">Search</span></button>
-		    </form>
+		    <partial name="_LoginPartial" />
 		  </div>
 		</nav>
     </header>

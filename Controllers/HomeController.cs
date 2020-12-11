@@ -23,23 +23,14 @@ namespace ProyectoProgra.Controllers
             return View();
         }
 
-        public IActionResult RegistrarUsu()
+        public IActionResult contactenos()
         {
-            var model = new RegistrarUsu();
-            model.District = " ";
-            return View(model);            
+            return View();
         }
-
-        [HttpPost]
-        public IActionResult RegistrarUsu(RegistrarUsu registrarUsu)
+ 
+        public IActionResult nosotros()
         {
-            if (ModelState.IsValid) 
-            {
-                // TODO: Hacer algo con los parámetros del objecto contacto
-                return RedirectToAction("Index");
-            }
-            
-            return View(registrarUsu);
+            return View();
         }
 
 
