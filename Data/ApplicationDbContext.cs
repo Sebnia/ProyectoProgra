@@ -16,6 +16,6 @@ namespace ProyectoProgra.Data
         
         public DbSet<ProyectoProgra.Models.Contacto> Contactos { get; set; }
 
-
+        public DbSet<Producto> Productos { get; set;}
     }
 }
