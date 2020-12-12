@@ -118,3 +118,18 @@ body {
 	border-radius: 1rem 0 0 1rem;
 	box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
 }
+
+@media (max-width:768px){
+  .ho{
+	height: 200px;
+	}
+
+}
+
+@media (min-width:768px){
+  .ho{
+  height: 500px;
+  width: 768px;
+	}
+
+}
