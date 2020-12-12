@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoProgra.Models
 {
@@ -16,18 +17,23 @@ namespace ProyectoProgra.Models
             [Column("idProduct")]
             public String idProduct {get; set;}
 
+            [Required]
             [Column("nameProduct")]
             public String nameProduct {get; set;}
         
+            [Required]
             [Column("priceProduct")]
             public Double priceProduct {get; set;}
 
+            [Required]
             [Column("describeProduct")]
             public String describeProduct {get; set;}
 
+            [Required]
             [Column("specifyProduct")]
             public String specifyProduct {get; set;}
 
+            [Required]
             [DisplayName("Category")]
             [Column("category")]
             public String category {get; set;}
@@ -45,9 +51,15 @@ namespace ProyectoProgra.Models
             
             };
 
-            public String Response { get; set; }        
+            [Column("rootImageProduct")]
+            public string rootImageProduct { get; set; }
 
+            [NotMapped]
+            [DisplayName("Subir imagen")]
+            public IFormFile imageFile { get; set; }
             
+            [NotMapped]
+            public String Response { get; set; }
 
 
     }

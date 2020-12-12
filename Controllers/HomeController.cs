@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProyectoProgra.Data;
 using ProyectoProgra.Models;
 
 namespace ProyectoProgra.Controllers
@@ -12,15 +13,20 @@ namespace ProyectoProgra.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger,  ApplicationDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var productos = _context.Productos.ToList();
+
+            return View(productos);
         }
 
         public IActionResult contactenos()

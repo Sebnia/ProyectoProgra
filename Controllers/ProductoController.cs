@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using ProyectoProgra.Models;
 using ProyectoProgra.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ProyectoProgra.Controllers
 {
@@ -18,12 +20,15 @@ namespace ProyectoProgra.Controllers
         private readonly ILogger<ProductoController> _logger;
         private readonly ApplicationDbContext _context;
 
+        private readonly IWebHostEnvironment _hostEnvironment;
+
 
         public ProductoController(ILogger<ProductoController> logger,
-            ApplicationDbContext context)
+            ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _logger = logger;
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
 
@@ -56,7 +61,7 @@ namespace ProyectoProgra.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registrar(Producto objProducto)
+        public async Task<IActionResult> Registrar(Producto objProducto)
         {
 
                     
@@ -64,12 +69,23 @@ namespace ProyectoProgra.Controllers
 
             if(ModelState.IsValid) 
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(objProducto.imageFile.FileName);
+                string extension = Path.GetExtension(objProducto.imageFile.FileName);
+                objProducto.rootImageProduct = fileName + DateTime.Now.ToString("yyyymmddhh") + extension;
+                string path = Path.Combine(wwwRootPath + "/imagenes", fileName +  DateTime.Now.ToString("yyyymmddhh") + extension);
+
+                using(var fileStream = new FileStream(path,FileMode.Create))
+                {
+                    await objProducto.imageFile.CopyToAsync(fileStream);
+                }
+                
                 
                 _context.Add(objProducto);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 objProducto.Response = "Producto Insertado Correctamente";
 
-                return RedirectToAction("Lista");
+                return RedirectToAction(nameof(Lista));
 
             }
 
@@ -93,6 +109,7 @@ namespace ProyectoProgra.Controllers
 
             return RedirectToAction("Lista");
         }
+
 
 
 
