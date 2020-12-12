@@ -31,7 +31,7 @@
         </tr>
         @if (Model.Count == 0) {
             <tr>
-                <td colspan="4" class="text-center">No se encontraron registros.</td>
+                <td colspan="7" class="text-center">No se encontraron registros.</td>
             </tr>
         }
             @foreach (var producto in Model) 
@@ -62,7 +62,6 @@
 
    document.addEventListener("submit", function(e){
 
-           e.preventDefault();
 
        });
 
