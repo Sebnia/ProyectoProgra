@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+     
     <link rel="stylesheet" href="wwwroot/css/site.css">
     <title>Catalogo de Partes</title>
 </head>
@@ -13,10 +14,10 @@
         <header>
             <div class="logo">
                 <h1>
-                    Productos - Mi Computadora
+                    Catalogo de Productos
                 </h1>
                 <form action="" class="">
-                    <input type="text" class="barra-busqueda" id="barra-busqueda" placeholder="buscar">
+                    <input type="text" class="barra-busqueda" id="barra-busqueda" placeholder="Buscar">
                 </form>
                 <br>
                 <div class="categorias" id="categorias" >
@@ -24,11 +25,80 @@
                     <a href="#" class="">Placas Madre</a>
                     <a href="#" class="">Tarjetas de Video</a>
                     <a href="#" class="">Procesadores</a>
-                    <a href="#" class="">Case's</a>
+                    <a href="#" class="">Case</a>
                     <a href="#" class="">Disco Duro</a>
+                    <a href="#" class="">+Mas</a>
                 </div>
             </div>
         </header>
+        <section class="grid" id="grid">
+            <div class="item" 
+            data-categoria="+mas" 
+            data-etiquetas="accesorios coolers cooler">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo1.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="procesadores" 
+            data-etiquetas="procesadores intel ryzen amd ">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo2.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="+mas" 
+            data-etiquetas="cables">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo3.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="+mas" 
+            data-etiquetas="apple">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo4.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="+mas" 
+            data-etiquetas="audifonos">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo5.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="case" 
+            data-etiquetas="case cases">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo6.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="disco duro" 
+            data-etiquetas="discos duro ssd">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo7.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="placas madre" 
+            data-etiquetas="placas motherboard">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo8.png" alt="">
+                </div>
+            </div>
+            <div class="item" 
+            data-categoria="tarjetas de video" 
+            data-etiquetas="tarjetas video nvidia amd radeon">
+                <div class="item-contenido">
+                    <img src="wwwroot/imagenes/catalogo9.png" alt="">
+                </div>
+            </div>
+        </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+    <script src="main1.js"></script>
 </body>
 </html>
