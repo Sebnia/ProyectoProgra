@@ -1,23 +1,27 @@
 @model ProyectoProgra.Models.Contacto
 
 <section class="container">
-		<div class="container" style="background-image:url(../imagenes/callcenter1.png);  height: 400px ; width: 1100px">
+		<div class="container hi" style="background-image:url(../imagenes/callcenter1.png);">
 			
 			<div class="row">	
-				<h2 style="padding-top: 20px ; padding-left: 20px; color: #99A3A4  ">Bienvenido a nuestra area de Contácto</h2>
+				<h2 class="f1">Bienvenido a nuestra <br>area de Contácto</h2>
 			</div>
 			<div class="row">
-			<h5 style="padding-top: 100px ; padding-left: 10px; color: #99A3A4  ">Comprometidos con nuestro servicio estamos siempre dispuestos <br>
-			para ayudarlo a resolver sus problemas</h5>
-			<h5 style="padding-top: 100px ; padding-left: 10px; color: #99A3A4  ">Por favor complete el siguiente formulario para ayudarlo</h5>
+			<h5 class="f2">Comprometidos con <br>nuestro servicio estamos <br>siempre dispuestos <br>
+			para ayudarlo a <br>resolver sus problemas</h5>
+			
 			</div>
 		</div>
+        <br>
+        <h5>Por favor complete el siguiente formulario para ayudarlo</h5>
+        <br>
+        
 	</section>
 
-<div class="row" >
+<div class="row justify-content-center" >
 
-    <div class="col-md-4" style="padding-left: 50px">
-        <h1 class="display-4">Formulario de contacto</h1>
+    <div class="col-md-6 col-sm-6" >
+        <h1 >Formulario de contacto</h1>
         <form  method="POST" asp-controller="Contacto" asp-action="Registrar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
