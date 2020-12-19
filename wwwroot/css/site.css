@@ -144,7 +144,7 @@ body {
     font-size: 15px;
     }
 
-    .f2{
+   .f2{
       padding-top: 7px ; 
       padding-left: 10px; 
       color: #99A3A4  ;
@@ -180,9 +180,6 @@ body {
     
     }
 
-<<<<<<< HEAD
-}
-=======
 .icon-facebook:before {
   content: "\ea90";
 }
@@ -192,8 +189,8 @@ body {
 .icon-twitter:before {
   content: "\ea96";
 }
+
 .icon-youtube:before {
   content: "\ea9d";
 }
 
->>>>>>> main
