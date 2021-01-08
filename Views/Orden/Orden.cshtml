@@ -1,0 +1,30 @@
+@model List<OrdenDetail>;
+
+@{
+    ViewData["Title"] = "Detalles de la Orden";
+}
+<p>
+ <button class="btn btn-primary" onclick="window.location='@Url.Action("Index", "Home")'">Atras</button>
+ </p>
+
+    <section class="jumbotron text-center">
+
+        @foreach (var item in Model)
+        {
+            
+        <div class="display-label" style="font-weight:bold;">
+            @item.Email
+        </div>
+        <div class="display-field" >
+            @item.producto
+        </div>
+
+        <div class="display-label" style="font-weight:bold;">
+            @item.price
+        </div>
+        <div class="display-field">
+            @item.Quantity
+        </div>
+
+
+        }

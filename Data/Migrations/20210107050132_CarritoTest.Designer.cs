@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProyectoProgra.Data;
@@ -9,9 +10,10 @@ using ProyectoProgra.Data;
 namespace ProyectoProgra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210107050132_CarritoTest")]
+    partial class CarritoTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,11 +274,6 @@ namespace ProyectoProgra.Data.Migrations
 
             modelBuilder.Entity("ProyectoProgra.Models.OrdenDetail", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
@@ -291,7 +288,7 @@ namespace ProyectoProgra.Data.Migrations
                     b.Property<int>("producto")
                         .HasColumnType("integer");
 
-                    b.HasKey("id");
+                    b.HasKey("Email");
 
                     b.ToTable("t_OrdenDetail");
                 });

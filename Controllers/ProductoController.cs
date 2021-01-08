@@ -110,6 +110,19 @@ namespace ProyectoProgra.Controllers
             return RedirectToAction("Lista");
         }
 
+        public IActionResult Detail(int? id) {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Producto detalle = _context.Productos.Find(id);
+            if (detalle == null) 
+            {
+                return NotFound();
+            }
+            return View(detalle);
+        }
+
 
 
 
