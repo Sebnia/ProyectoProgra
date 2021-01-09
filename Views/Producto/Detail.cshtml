@@ -29,7 +29,7 @@
                         <p>@Html.DisplayFor(model => model.category)</p>
 
                         <h5><b>@Html.DisplayNameFor(model=> model.priceProduct)</b></h5>
-                        <p>@Html.DisplayFor(model => model.priceProduct)</p>
+                        <p>$@Html.DisplayFor(model => model.priceProduct)</p>
 
                  
                         <a type="button" asp-controller="Cart" asp-action="Buy" asp-route-id="@Model.ID" class="btn btn-warning">
