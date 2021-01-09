@@ -92,6 +92,8 @@ namespace ProyectoProgra.Controllers
             return View(objProducto);
         }
 
+        
+
         public IActionResult Lista()
         {
             var productos = _context.Productos.ToList();
