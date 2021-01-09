@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Carrito de Compras";
+}
+
+
+    <h3>Carrito de Compras</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Opción</th>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Sub-Total</th>
+        </tr>
+        @foreach (var item in ViewBag.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Producto.ID">Remove</a></td>
+                <td>@item.Producto.idProduct</td>
+                <td>@item.Producto.nameProduct</td>
+                <td>@item.Producto.priceProduct</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Producto.priceProduct * item.Quantity)</td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @ViewBag.total
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>

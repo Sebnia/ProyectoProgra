@@ -15,26 +15,50 @@ namespace ProyectoProgra.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
 
+        
 
         public HomeController(ILogger<HomeController> logger,  ApplicationDbContext context)
         {
+            
             _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var productos = _context.Productos.ToList();
 
+            var productos = _context.Productos.OrderByDescending(x=>x.ID).Take(6).ToList();
             return View(productos);
+        }
+        public IActionResult productos()
+        {
+            return View();
+        }
+        public IActionResult productosaccesorios()
+        {
+            return View();
+        }
+
+        public IActionResult procesadores()
+        {
+            return View();
+        }
+        public IActionResult procesadorproducto(){
+            return View();
         }
 
         public IActionResult contactenos()
         {
             return View();
         }
+
  
         public IActionResult nosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Noticias()
         {
             return View();
         }
@@ -42,6 +66,7 @@ namespace ProyectoProgra.Controllers
 
         public IActionResult Privacy()
         {
+         
             return View();
         }
 

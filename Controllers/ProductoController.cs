@@ -92,6 +92,8 @@ namespace ProyectoProgra.Controllers
             return View(objProducto);
         }
 
+        
+
         public IActionResult Lista()
         {
             var productos = _context.Productos.ToList();
@@ -108,6 +110,19 @@ namespace ProyectoProgra.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Lista");
+        }
+
+        public IActionResult Detail(int? id) {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Producto detalle = _context.Productos.Find(id);
+            if (detalle == null) 
+            {
+                return NotFound();
+            }
+            return View(detalle);
         }
 
 
