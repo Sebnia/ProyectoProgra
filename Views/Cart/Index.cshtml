@@ -2,11 +2,11 @@
     ViewData["Title"] = "Carrito de Compras";
 }
 
-
-    <h3>Carrito de Compras</h3>
-    @if (ViewBag.cart != null)
-    {
-    <table cellpadding="2" cellspacing="2" border="1">
+    <div class="text-center">
+    <h1 class="display-4">Carrito de compras</h1>
+    </div>
+    <div class="table-responsive">
+    <table class="table" cellpadding="2" cellspacing="2"  >
         <tr>
             <th>Opción</th>
             <th>Id</th>
@@ -15,31 +15,26 @@
             <th>Cantidad</th>
             <th>Sub-Total</th>
         </tr>
-       
-            
         @foreach (var item in ViewBag.cart)
         {
             <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Producto.ID">Remove</a></td>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Producto.ID">Eliminar del carrito</a></td>
                 <td>@item.Producto.idProduct</td>
                 <td>@item.Producto.nameProduct</td>
-                <td>$@item.Producto.priceProduct</td>
+                <td>@item.Producto.priceProduct</td>
                 <td>@item.Quantity</td>
-                <td>$@(item.Producto.priceProduct * item.Quantity)</td>
+                <td>@(item.Producto.priceProduct * item.Quantity)</td>
             </tr>
         }
-
-
         <tr>
-            <td align="right" colspan="5">Sum</td>
-            <td>
-                $@ViewBag.total
+            <td  colspan="1">Total a pagar</td>
+            <td align="Left">
+                @ViewBag.total
             </td>
         </tr>
     </table>
-
-    } else {
-        <h1>No se ha agregado productos</h1>
-    }
+    </div>
     <br>
-    <a asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>
+    <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>
+    <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Finalizar Compra</a>
+
