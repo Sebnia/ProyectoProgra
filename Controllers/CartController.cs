@@ -25,9 +25,13 @@ namespace ProyectoProgra.Controllers
         
         public IActionResult Index()
         {
+
             var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-            ViewBag.cart = cart;
-            ViewBag.total = cart.Sum(item => item.Producto.priceProduct * item.Quantity);
+
+                ViewBag.cart = cart;
+                if(cart != null) { 
+                ViewBag.total = cart.Sum(item => item.Producto.priceProduct * item.Quantity);
+                }
             return View();
         }
 
