@@ -5,6 +5,7 @@
     <div class="text-center">
     <h1 class="display-4">Carrito de compras</h1>
     </div>
+        @if(ViewBag.cart != null){
     <div class="table-responsive">
     <table class="table" cellpadding="2" cellspacing="2"  >
         <tr>
@@ -23,18 +24,22 @@
                 <td>@item.Producto.nameProduct</td>
                 <td>@item.Producto.priceProduct</td>
                 <td>@item.Quantity</td>
-                <td>@(item.Producto.priceProduct * item.Quantity)</td>
+                <td>$@(item.Producto.priceProduct * item.Quantity)</td>
             </tr>
         }
         <tr>
-            <td  colspan="1">Total a pagar</td>
+            <td  colspan="5">Total a pagar</td>
             <td align="Left">
-                @ViewBag.total
+                $@ViewBag.total
             </td>
         </tr>
     </table>
     </div>
+    } else {
+        <h1>No se han añadido productos</h1>
+    }
     <br>
     <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>
+    @if(ViewBag.cart != null){
     <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Finalizar Compra</a>
-
+    }
