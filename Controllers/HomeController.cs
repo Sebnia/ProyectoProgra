@@ -58,7 +58,7 @@ namespace ProyectoProgra.Controllers
             return View();
         }
 
-        public IActionResult Noticias()
+        public IActionResult noticias()
         {
             return View();
         }
@@ -69,6 +69,8 @@ namespace ProyectoProgra.Controllers
          
             return View();
         }
+
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
