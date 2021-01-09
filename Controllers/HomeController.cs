@@ -30,11 +30,28 @@ namespace ProyectoProgra.Controllers
             var productos = _context.Productos.OrderByDescending(x=>x.ID).Take(6).ToList();
             return View(productos);
         }
+        public IActionResult productos()
+        {
+            return View();
+        }
+        public IActionResult productosaccesorios()
+        {
+            return View();
+        }
+
+        public IActionResult procesadores()
+        {
+            return View();
+        }
+        public IActionResult procesadorproducto(){
+            return View();
+        }
 
         public IActionResult contactenos()
         {
             return View();
         }
+
  
         public IActionResult nosotros()
         {
