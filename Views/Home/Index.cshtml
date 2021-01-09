@@ -44,7 +44,7 @@
 	<br>
 	<br>
 	<div class="header">
-		<h4>Ofertas Destacadas</h4>
+		<h4>Últimos Productos</h4>
 	</div>
 
 	<br>
@@ -65,7 +65,7 @@
 					<p class="card-text">@producto.specifyProduct</p>
 					<p class="card-text">
 					<small class="text-muted">@producto.priceProduct</small>
-					<button type="button" class="btn btn-warning" id="boton1">Ver</button>
+					<a type="button" asp-controller="Cart" asp-action="Buy" asp-route-id="@producto.ID" class="btn btn-warning">Ver</a>
 					</p>
 				</div>
 			</div>
