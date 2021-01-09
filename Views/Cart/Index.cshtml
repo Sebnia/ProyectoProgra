@@ -2,9 +2,11 @@
     ViewData["Title"] = "Carrito de Compras";
 }
 
-
-    <h3>Carrito de Compras</h3>
-    <table cellpadding="2" cellspacing="2" border="1">
+    <div class="text-center">
+    <h1 class="display-4">Carrito de compras</h1>
+    </div>
+    <div class="table-responsive">
+    <table class="table" cellpadding="2" cellspacing="2"  >
         <tr>
             <th>Opción</th>
             <th>Id</th>
@@ -16,7 +18,7 @@
         @foreach (var item in ViewBag.cart)
         {
             <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Producto.ID">Remove</a></td>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Producto.ID">Eliminar del carrito</a></td>
                 <td>@item.Producto.idProduct</td>
                 <td>@item.Producto.nameProduct</td>
                 <td>@item.Producto.priceProduct</td>
@@ -25,11 +27,14 @@
             </tr>
         }
         <tr>
-            <td align="right" colspan="6">Sum</td>
-            <td>
+            <td  colspan="1">Total a pagar</td>
+            <td align="Left">
                 @ViewBag.total
             </td>
         </tr>
     </table>
+    </div>
     <br>
-    <a asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>
+    <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Continuar Comprando</a>
+    <a class="btn btn-success" asp-controller="Catalogo" asp-action="Index">Finalizar Compra</a>
+
