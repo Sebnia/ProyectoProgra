@@ -15,17 +15,19 @@ namespace ProyectoProgra.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
 
+        
 
         public HomeController(ILogger<HomeController> logger,  ApplicationDbContext context)
         {
+            
             _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var productos = _context.Productos.ToList();
 
+            var productos = _context.Productos.OrderByDescending(x=>x.ID).Take(6).ToList();
             return View(productos);
         }
         public IActionResult productos()
@@ -59,6 +61,7 @@ namespace ProyectoProgra.Controllers
 
         public IActionResult Privacy()
         {
+         
             return View();
         }
 

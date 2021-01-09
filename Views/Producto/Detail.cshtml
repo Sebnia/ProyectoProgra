@@ -1,0 +1,148 @@
+@model Producto;
+
+
+
+        <h2 style="text-align: center;">Detalles del Producto</h2>
+        
+    
+            <div >@Html.DisplayFor(model => model.nameProduct)</div>
+
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-6" style="color:blue">
+                        <img src="~/imagenes/@Model.rootImageProduct" width="400" height="400"  id="imagen"    />
+                        <center><div id="zoom" class="img-zoom-result"></div></center>
+                </div>
+
+                <div class="col-sm-6">
+                        
+                        <h5><b>@Html.DisplayNameFor(model=> model.nameProduct)</b></h5>
+                        <p>@Html.DisplayFor(model => model.nameProduct)</p>
+
+                        <h5><b>@Html.DisplayNameFor(model=> model.describeProduct)</b></h5>
+                        <p>@Html.DisplayFor(model => model.describeProduct)</p>
+                
+                        <h5><b>@Html.DisplayNameFor(model=> model.specifyProduct)</b></h5>
+                        <p>@Html.DisplayFor(model => model.specifyProduct)</p>
+
+                        <h5><b>@Html.DisplayNameFor(model=> model.category)</b></h5>
+                        <p>@Html.DisplayFor(model => model.category)</p>
+
+                        <h5><b>@Html.DisplayNameFor(model=> model.priceProduct)</b></h5>
+                        <p>@Html.DisplayFor(model => model.priceProduct)</p>
+
+                 
+                        <a type="button" asp-controller="Cart" asp-action="Buy" asp-route-id="@Model.ID" class="btn btn-warning">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+  						              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+					                </svg>
+                          Añadir a Carrito</a>
+
+                  
+
+
+                </div>
+
+                </div>
+
+              
+
+             
+
+            </div>
+
+         
+
+
+
+
+
+
+
+
+
+<style>
+    * {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 150px;
+  height: 150px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
+}
+
+</style>
+<script>
+
+
+
+function imageZoom(imgID, resultID) {
+    var img, lens, result, cx, cy;
+    img = document.getElementById(imgID);
+    result = document.getElementById(resultID);
+    lens = document.createElement("DIV");
+    lens.setAttribute("class", "img-zoom-lens");
+
+    img.parentElement.insertBefore(lens, img);
+
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
+
+    result.style.backgroundImage = "url('" + img.src + "')";
+    result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+    lens.addEventListener("mousemove", moveLens);
+    img.addEventListener("mousemove", moveLens);
+
+    lens.addEventListener("touchmove", moveLens);
+    img.addEventListener("touchmove", moveLens);
+    function moveLens(e) {
+      var pos, x, y;
+
+      e.preventDefault();
+
+      pos = getCursorPos(e);
+
+      x = pos.x - (lens.offsetWidth / 2);
+      y = pos.y - (lens.offsetHeight / 2);
+
+      if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+      if (x < 0) {x = 0;}
+      if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+      if (y < 0) {y = 0;}
+
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+
+      result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+    }
+    function getCursorPos(e) {
+      var a, x = 0, y = 0;
+      e = e || window.event;
+
+      a = img.getBoundingClientRect();
+
+      x = e.pageX - a.left;
+      y = e.pageY - a.top;
+
+      x = x - window.pageXOffset;
+      y = y - window.pageYOffset;
+      return {x : x, y : y};
+    }
+  }
+  </script>
+<script>
+    imageZoom("imagen", "zoom");
+</script>
